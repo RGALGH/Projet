@@ -8,7 +8,7 @@ error_reporting(-1);
 
 try {
     
-    $dsn = 'mysql:dbname=users;host=localhost;port=3306;charset=utf8';   
+    $dsn = 'mysql:dbname=to_do_list;host=localhost;port=3306;charset=utf8';   
     $user = 'root';
     $pwd = '';
 
