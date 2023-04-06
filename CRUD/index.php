@@ -22,7 +22,7 @@ require './bd_conn.php';
     <header>
         <nav>
             <div class="navgauche">
-                <a href="./index.html"><img src="../images/place.jpg" alt=""></a>
+                <a href="./../CRUD/index.php"><img src="../images/place.jpg" alt=""></a>
                 <h1 class="titre">ToDoList</h1>
             </div>
             <div class="navdroite">
@@ -36,10 +36,10 @@ require './bd_conn.php';
         <div class="main-section">
             <div class="tapertache">
                 <form action="../app/ajouter.php" method="POST" autocomplete="off">
-                    <?php if(isset($_GET['mess']) && $_GET['mess'] == 'error') { ?>                         
-                        <?php } else{?>
-                    <input class="barretache" type="text" name="title" placeholder="Saisir une tâche">
-                    <button class="bouton" type="submit">Ajouter &nbsp; <span>&#43;</span></button>
+                    <?php if (isset($_GET['mess']) && $_GET['mess'] == 'error') { ?>
+                    <?php } else { ?>
+                        <input class="barretache" type="text" name="title" placeholder="Saisir une tâche">
+                        <button class="bouton" type="submit">Ajouter &nbsp; <span>&#43;</span></button>
                     <?php } ?>
                 </form>
             </div>
@@ -61,27 +61,21 @@ require './bd_conn.php';
                 </div>
             <?php } ?>
 
-            <?php while($add_todo = $todo -> fetch(PDO :: FETCH_ASSOC)) { ?>
+            <?php while ($add_todo = $todo->fetch(PDO::FETCH_ASSOC)) { ?>
                 <div class="tache">
-                    <span id="<?php echo $add_todo['id'];?>"
-                    class="supprimer_todo">x</span>
-                    <?php if ($add_todo['valider']){?>
-                    <input type="checkbox"
-                           class="checkbox" 
-                           checked>
-                    <h2 class="valider"><?php echo $add_todo['titre'] ?></h2>
+                    <span id="<?php echo $add_todo['id']; ?>" class="supprimer_todo">x</span>
+                    <?php if ($add_todo['valider']) { ?>
+                        <input type="checkbox" class="checkbox" checked>
+                        <h2 class="valider"><?php echo $add_todo['titre'] ?></h2>
                     <?php } else { ?>
-                        <input type="checkbox" 
-                               class="checkbox">
-                    <h2><?php echo $add_todo['titre'] ?></h2>
+                        <input type="checkbox" class="checkbox">
+                        <h2><?php echo $add_todo['titre'] ?></h2>
                     <?php } ?>
                     <br>
                     <small>créer le : <?php echo $add_todo['date_crea'] ?></small>
                 </div>
             <?php } ?>
         </div>
-
-
     </main>
 
 
